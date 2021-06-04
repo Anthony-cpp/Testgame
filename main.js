@@ -143,7 +143,7 @@ function enemy(){
 
 	draw();
 
-	document.getElementById("sc").textContent = score;
+	document.getElementById("sc").textContent = score + " " + "Level" + flag;
 
 	}
 }
@@ -209,6 +209,8 @@ function over(){
 }
 
 function check(){
+
+	
 
 	var v_s;
 	
@@ -342,6 +344,7 @@ function check(){
 	ce(ex[3],ey[3]);
 
 }
+
 
 setInterval(enemy, 20);
 setInterval(over,1);
