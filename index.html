@@ -11,15 +11,38 @@
         height: 480px;
         background: #000;
       }
+
+      #c_w{
+	width:640px;
+	margin:0 auto;
+
+      }
+h1{
+font-size: 35px;
+}
+
+     #ab{
+	font-size: 15px;
+	}
+
+     #ac{
+	font-size: 25px;
+　　　}
     </style>
 
-<title>避けるゲーム</title>
+<title>避ける何かを</title>
 </head>
 <body>
-<canvas id="canvas"></canvas>
+<h1>Avoiding Game!</h1>
+<div id="c_w"><canvas id="canvas"></canvas></div>
 
 <script type="text/javascript" src="main.js"></script>
+</br>
+<div id ="ac"><p id ="sc"></p>
 
-<p id ="sc"></p>
+<div id="ab"><p>----ルール説明----</p>
+<p>当たらないように↑↓で逃げよう!!</p>
+<p>下のボタンを押せばやり直せるよ!!</p></div>
+<input type="button" value="ReStart" onclick="location.reload();"/><br />
 </body>
 </html>
