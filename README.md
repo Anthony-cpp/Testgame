@@ -5,4 +5,5 @@
 URL https://anthony-cpp.github.io/Testgame/    
   
 --更新履歴  
-6/5 テキストを追加、canvasの位置の変更
+6/5 テキストを追加、canvasの位置の変更  
+6/6 READMEを見やすく変更  
