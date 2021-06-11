@@ -194,7 +194,22 @@ function over(){
 	ex[3] = 150;
 	v = 1.5;
 	x = 80;
+	}
 
+	else if( score > 1100 && flag == 4 ){
+	flag = 5;
+	p_x = 10;
+	p_y = 70;
+	ey[0] = g_r( 0, 140 );
+	ey[1] = g_r( 50, 120 );
+	ey[2] = g_r( 70, 100 );
+	ey[3] = g_r( 90, 140 );
+	ex[0] = 150;
+	ex[1] = 150;
+	ex[2] = 150;
+	ex[3] = 150;
+	v = 1;
+	
 	}
 
 
@@ -204,7 +219,9 @@ function over(){
 		ctx.clearRect(0, 0, 1000, 1000);
 		ctx.fillStyle = "rgb(100,100,100)";
 		ctx.fillRect(0,0,1000,1000);
-
+/*		ctx.fillStyle = "rgb(256,0,0)";
+		ctx.font =  "30pt 'AR明朝体U'";
+		ctx.fillText('Game Over !!',20 ,80);*/
 	}
 }
 
@@ -225,6 +242,20 @@ function check(){
 	}
 
 	for(i = 0; i < 4; i++) {
+
+	if(flag == 5){
+	
+	ex[0] = 40;
+	ex[1] = 40;
+	ex[2] = 150;
+	ex[3] = 150;
+	ey[0] = 40;
+	ey[1] = 90;
+	ey[2] = 0;
+	ey[3] = 0;
+
+
+	}
 
 
 	if(ex[i] < 0){
@@ -344,8 +375,29 @@ function check(){
 	ce(ex[3],ey[3]);
 
 }
+	
+function count_5(){
+	 if(flag == 5) score += 10; 
+	}
 
+function restart(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 1;
 
+}
+
+setInterval(count_5,1000);
 setInterval(enemy, 20);
 setInterval(over,1);
 setInterval(check,1);
