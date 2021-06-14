@@ -7,6 +7,7 @@
 	var ey = new Array(5);
 
 	var vel = 0;
+	var flag_s=0;
 
 	ex = [200, 220, 240, 260, 280];
 	ey = [g_r(0,100), g_r(20,60), g_r(70,130), g_r(70,140), 130];
@@ -192,11 +193,11 @@ function over(){
 	ex[1] = 150;
 	ex[2] = 150;
 	ex[3] = 150;
-	v = 1.5;
-	x = 80;
+	v = 0.75;
+	x = 100;
 	}
 
-	else if( score > 1100 && flag == 4 ){
+	else if( score > 1200 && flag == 4 ){
 	flag = 5;
 	p_x = 10;
 	p_y = 70;
@@ -212,6 +213,16 @@ function over(){
 	
 	}
 
+	else if( score > 1400 && flag == 5){
+	flag = 6;
+	v = 0.5;
+	}
+
+	else if( score > 1500 && flag == 6){
+	flag = 7;
+	v = 0.5;
+	}
+
 
 	else if(flag == 0){
 
@@ -219,9 +230,6 @@ function over(){
 		ctx.clearRect(0, 0, 1000, 1000);
 		ctx.fillStyle = "rgb(100,100,100)";
 		ctx.fillRect(0,0,1000,1000);
-/*		ctx.fillStyle = "rgb(256,0,0)";
-		ctx.font =  "30pt 'AR明朝体U'";
-		ctx.fillText('Game Over !!',20 ,80);*/
 	}
 }
 
@@ -238,7 +246,22 @@ function check(){
 
 	if(flag == 4){
 	x += 0.05;
-	if(x > 150) x = 80;
+	if(x > 150) x = 90;
+	}
+	
+	if(flag == 6){
+	if(p_x < 50 ) p_x += 0.125;
+	}
+
+	if( flag == 7){
+	if( flag_s == 0 ){
+	  p_x += 0.07;
+	  if(p_x > 50) flag_s = 1;
+	}
+	else{
+	  p_x -= 0.07;
+	  if(p_x < 10) flag_s = 0;
+	}
 	}
 
 	for(i = 0; i < 4; i++) {
@@ -250,7 +273,7 @@ function check(){
 	ex[2] = 150;
 	ex[3] = 150;
 	ey[0] = 40;
-	ey[1] = 90;
+	ey[1] = 100;
 	ey[2] = 0;
 	ey[3] = 0;
 
@@ -362,6 +385,29 @@ function check(){
 
 	break;
 
+	case 6:
+	if(i == 0) {
+	ey[0] = g_r( 30, 134 );
+	ex[0] = 190;
+	}
+
+	else if(i == 1){
+	ey[1] = g_r( 0, 120 );
+	ex[1] = 170;
+	}
+
+	else if(i == 2){
+	ey[2] = g_r( 70, 100 );
+	ex[2] = 160;
+	}
+
+	else{
+	ey[3] = g_r( 90, 140 );
+	ex[3] = 180;
+	}
+
+	break;
+
 	}
 	
 
@@ -401,4 +447,3 @@ setInterval(count_5,1000);
 setInterval(enemy, 20);
 setInterval(over,1);
 setInterval(check,1);
-
