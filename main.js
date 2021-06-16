@@ -1,6 +1,6 @@
 	
 	var p_x = 10 ,p_y = 70;
-	var i,score = 0,c,flag = ,v = 0.5,t;
+	var i,score = 0,c,flag = 1 ,v = 0.5,t;
 	var a,b,x=180;
 
 	var ex = new Array(5);
