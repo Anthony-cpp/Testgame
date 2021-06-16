@@ -1,6 +1,6 @@
 	
 	var p_x = 10 ,p_y = 70;
-	var i,score = 0,c,flag = 1,v = 0.5,t;
+	var i,score = 0,c,flag = 0,v = 0.5,t;
 	var a,b,x=180;
 
 	var ex = new Array(5);
@@ -102,7 +102,7 @@ function keydownfunc( event ) {
 function enemy(){
 
 
-    if( flag != 0 ){
+    if( flag != 0  && flag != 8){
 
 	for(i = 0;i < 5;i++){
 	
@@ -145,6 +145,31 @@ function enemy(){
 	draw();
 
 	document.getElementById("sc").textContent = score + " " + "Level" + flag;
+
+	}
+
+	if(flag == 8){
+
+	vel += 0.05;
+	p_y += vel;
+
+	if( p_y > 130){
+
+	p_y = 0;
+	score += 20;
+
+	}
+
+	else if ( p_y < 0){
+
+	p_y = 130;
+	score += 20;
+
+	}
+
+	draw();
+	document.getElementById("sc").textContent = score + " " + "Level" + flag;
+
 
 	}
 }
@@ -215,12 +240,17 @@ function over(){
 
 	else if( score > 1400 && flag == 5){
 	flag = 6;
-	v = 0.5;
+	v = 0.75;
 	}
 
-	else if( score > 1500 && flag == 6){
+	else if( score > 1600 && flag == 6){
 	flag = 7;
-	v = 0.5;
+	v = 0.75;
+	}
+
+	else if( score > 1800 && flag == 7){
+	flag = 8;
+	v = 0.25;
 	}
 
 
@@ -245,15 +275,16 @@ function check(){
 	}
 
 	if(flag == 4){
-	x += 0.05;
+	 x += 0.05;
 	if(x > 150) x = 90;
 	}
 	
 	if(flag == 6){
-	if(p_x < 50 ) p_x += 0.125;
+	 if(p_x < 50 ) p_x += 0.125;
 	}
 
 	if( flag == 7){
+
 	if( flag_s == 0 ){
 	  p_x += 0.07;
 	  if(p_x > 50) flag_s = 1;
@@ -262,6 +293,21 @@ function check(){
 	  p_x -= 0.07;
 	  if(p_x < 10) flag_s = 0;
 	}
+	}
+
+	if(flag == 8){
+		p_x += 0.5;
+	  if(p_x > 250){
+	    ex[0] = g_r( 150, 200);
+	    ex[1] = g_r( 120, 200);
+     	    ex[2] = g_r( 130, 200);
+	    ex[3] = g_r( 140, 200);
+	    ey[0] = g_r( 0, 100);
+	    ey[1] = g_r( 100, 200);
+	    ey[2] = g_r( 50, 150);
+	    ey[3] = g_r( 0, 200);
+	p_x = 10;
+	  } 
 	}
 
 	for(i = 0; i < 4; i++) {
@@ -424,9 +470,10 @@ function check(){
 	
 function count_5(){
 	 if(flag == 5) score += 10; 
+	 if(flag == 8) score += 10;
 	}
 
-function restart(){
+function l_1(){
 	p_x = 10;
 	p_y = 70;
 	ex[0] = 200;
@@ -440,10 +487,130 @@ function restart(){
 	vel = 0;
 	score = 0;
 	flag = 1;
-
+	v = 0;
 }
+
+function l_2(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 2;
+	v = 0;
+}
+
+function l_3(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 3;
+	v = 1.5;
+}
+function l_4(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 4;
+	v = 0.75;
+}
+
+function l_5(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 5;
+	v = 1;
+}
+
+function l_6(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 6;
+	v = 0.75;
+}
+
+function l_7(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag =  7;
+	v = 0.75;
+}
+
+function l_8(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 8;
+	v = 0.25;
+}
+
 
 setInterval(count_5,1000);
 setInterval(enemy, 20);
 setInterval(over,1);
 setInterval(check,1);
+
