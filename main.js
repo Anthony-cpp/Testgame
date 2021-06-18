@@ -1,6 +1,6 @@
 	
 	var p_x = 10 ,p_y = 70;
-	var i,score = 0,c,flag = 1 ,v = 0.5,t;
+	var i,score = 0,c,flag = 1,v = 0.5,t;
 	var a,b,x=180;
 
 	var ex = new Array(5);
@@ -33,8 +33,14 @@ function draw(){
 	ctx.fillRect(ex[2], ey[2], 30, 10);
 	ctx.fillRect(ex[3], ey[3], 30, 10);
 //	ctx.fillRect(ex[4], ey[4], 30, 10);
-	if( flag == 2 ) ctx.fillRect(x,0,100,400);
-	if( flag == 4 ) ctx.fillRect(x,0,100,400);
+	if( flag == 2 ){
+		ctx.fillStyle = "rgb(100,20,0)";
+		ctx.fillRect(x,0,100,400);
+	}
+	if( flag == 4 ){
+		ctx.fillStyle = "rgb(100,20,0)";
+	 	ctx.fillRect(x,0,100,400);
+	}
 
 	ctx.fillStyle = "rgb(50,200,10)";
 
@@ -79,9 +85,12 @@ function ce( c, d ){
 
 function keydownfunc( event ) {
 
+	var key_code = event.keyCode;
+
+	if( key_code === 82 ) l_1();
+
 
  if( flag != 0){
-	var key_code = event.keyCode;
  		
 	if( key_code === 38 && p_y >= 10 ){
 
@@ -102,7 +111,7 @@ function keydownfunc( event ) {
 function enemy(){
 
 
-    if( flag != 0  && flag != 8){
+    if( flag != 0  && flag != 8 && flag !=5){
 
 	for(i = 0;i < 5;i++){
 	
