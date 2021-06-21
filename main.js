@@ -111,7 +111,7 @@ function keydownfunc( event ) {
 function enemy(){
 
 
-    if( flag != 0  && flag != 8 && flag !=5){
+    if( flag != 0  && flag != 8){
 
 	for(i = 0;i < 5;i++){
 	
