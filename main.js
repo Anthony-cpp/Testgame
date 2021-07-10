@@ -622,4 +622,3 @@ setInterval(count_5,1000);
 setInterval(enemy, 20);
 setInterval(over,1);
 setInterval(check,1);
-
