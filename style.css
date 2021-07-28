@@ -6,12 +6,18 @@
         width: 640px;
         height: 480px;
         background: #000;
+	margin: 20px; 
+	float: right;
       }
 
       #c_w{
 	width:640px;
 	margin:0 auto;
 
+      }
+
+      #buttons{
+	float: right;
       }
 
 	h1{
@@ -30,8 +36,10 @@
 	font-size: 25px;
 	padding: 0px;
 	margin: 0px;
-Å@Å@Å@}
+       }
 
      .b_1{
 	background-color: rgb(255, 0, 0, 0.2);
 	}
+
+	
