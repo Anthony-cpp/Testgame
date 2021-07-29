@@ -90,7 +90,7 @@ function keydownfunc( event ) {
 	if( key_code === 82 ) l_1();
 
 
- if( flag != 0){
+ if( flag != 0 && flag != 9){
  		
 	if( key_code === 38 && p_y >= 10 ){
 
@@ -105,6 +105,22 @@ function keydownfunc( event ) {
 
 	draw();
  }
+
+	if(flag == 9){
+
+	if( key_code === 38 && p_y >= 10 ){
+
+	vel = - 2.5;
+
+	}
+	if( key_code === 40 && p_y <= 130){
+
+	p_y += 5;
+
+	}
+
+	draw();
+	}
 
 }
 
@@ -129,7 +145,6 @@ function enemy(){
 
 	else if(i % 5 == 3)   ex[3] -= g_r(1,2) + v;
 
-	//else if(i % 5 == 4)   ex[4] -= 8 + v;
 
 	}
 	
@@ -260,6 +275,11 @@ function over(){
 	else if( score > 1800 && flag == 7){
 	flag = 8;
 	v = 0.25;
+	}
+
+	else if( score > 2000 && flag == 8){
+	flag = 9;
+	v = 1.75;
 	}
 
 
@@ -442,7 +462,7 @@ function check(){
 
 	case 6:
 	if(i == 0) {
-	ey[0] = g_r( 30, 134 );
+	ey[0] = g_r( 0, 70 );
 	ex[0] = 190;
 	}
 
@@ -457,8 +477,55 @@ function check(){
 	}
 
 	else{
-	ey[3] = g_r( 90, 140 );
+	ey[3] = g_r( 45, 140 );
 	ex[3] = 180;
+	}
+
+	break;
+
+	case 7:
+	if(i == 0) {
+	ey[0] = g_r( 0, 70 );
+	ex[0] = 190;
+	}
+
+	else if(i == 1){
+	ey[1] = g_r( 0, 120 );
+	ex[1] = 170;
+	}
+
+	else if(i == 2){
+	ey[2] = g_r( 70, 100 );
+	ex[2] = 160;
+	}
+
+	else{
+	ey[3] = g_r( 45, 140 );
+	ex[3] = 180;
+	}
+
+	break;
+
+	case 9:
+
+	if(i == 0) {
+	ey[0] = g_r( 0, 70 );
+	ex[0] = 200;
+	}
+
+	else if(i == 1){
+	ey[1] = g_r( 0, 120 );
+	ex[1] = 210;
+	}
+
+	else if(i == 2){
+	ey[2] = g_r( 70, 100 );
+	ex[2] = 190;
+	}
+
+	else{
+	ey[3] = g_r( 45, 140 );
+	ex[3] = 200;
 	}
 
 	break;
@@ -615,6 +682,23 @@ function l_8(){
 	score = 0;
 	flag = 8;
 	v = 0.25;
+}
+
+function l_9(){
+	p_x = 10;
+	p_y = 70;
+	ex[0] = 200;
+	ex[1] = 220;
+	ex[2] = 240;
+	ex[3] = 260;
+	ey[0] = g_r(0,100);
+	ey[1] = g_r(20,60);
+	ey[2] = g_r(70,130);
+	ey[3] = g_r(70,140);
+	vel = 0;
+	score = 0;
+	flag = 9;
+	v = 1.75;
 }
 
 
